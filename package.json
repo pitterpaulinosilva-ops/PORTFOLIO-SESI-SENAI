@@ -1,0 +1,26 @@
+{
+  "name": "portfolio-de-para-github",
+  "version": "1.0.0",
+  "description": "Dashboard interativo para análise comparativa entre portfólios de processos 2024 e 2025",
+  "main": "DE-PARA.html",
+  "scripts": {
+    "start": "serve -s . -l 3000",
+    "build": "echo 'Build completed - static files ready'",
+    "dev": "serve -s . -l 3000"
+  },
+  "keywords": [
+    "dashboard",
+    "analytics",
+    "portfolio",
+    "processos",
+    "comparativo",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Pitter Paulino da Silva",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
