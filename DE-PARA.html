@@ -133,12 +133,13 @@
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--primary-50) 100%);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 25%, #cbd5e1 50%, #94a3b8 100%);
             color: var(--text-primary);
             line-height: 1.6;
             font-weight: 400;
             letter-spacing: -0.01em;
             transition: background-color 0.3s ease, color 0.3s ease;
+            min-height: 100vh;
         }
         
         /* Theme Toggle Button */
@@ -202,11 +203,12 @@
             margin: 0 auto;
             height: 60vh;
             max-height: 550px;
-            background: var(--bg-primary);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
             border-radius: var(--radius-xl);
             padding: 2rem;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border-primary);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .comparison-chart-container {
@@ -250,12 +252,13 @@
         }
         
         .kpi-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
             border-radius: var(--radius-xl);
             padding: 2rem;
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid var(--neutral-200);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -270,10 +273,22 @@
             background: linear-gradient(90deg, var(--primary-400) 0%, var(--primary-600) 100%);
         }
         
+        .kpi-card::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(0, 76, 152, 0.1) 0%, rgba(0, 76, 152, 0.05) 100%);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+        
         .kpi-card:hover {
             transform: translateY(-8px) scale(1.02);
-            box-shadow: var(--shadow-xl);
-            border-color: var(--primary-200);
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
+            border-color: rgba(0, 76, 152, 0.2);
         }
         
         .table-responsive {
@@ -371,6 +386,80 @@
         
         ::-webkit-scrollbar-thumb:hover {
             background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-700) 100%);
+        }
+        
+        /* Enhanced Header Styling */
+        .header-gradient {
+            background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 50%, var(--primary-700) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        /* Modern Typography */
+        .title-modern {
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-500) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        
+        .subtitle-modern {
+            color: var(--text-tertiary);
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+        
+        /* Enhanced Buttons */
+        .btn-modern {
+            background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: -0.01em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 16px rgba(0, 76, 152, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-modern:hover::before {
+            left: 100%;
+        }
+        
+        .btn-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 76, 152, 0.4);
+        }
+        
+        .btn-modern:active {
+            transform: translateY(0);
         }
         
         /* Sidebar Toggle Styles */
